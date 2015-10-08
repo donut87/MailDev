@@ -65,6 +65,8 @@ module.exports = function(config) {
   }
 
   if(config.persistMails){
+    // TODO insert checks for path (existing? write permissions? etc.)
+    // also add tests...
     mailserver.setPersistentMailFolder(config.persistMails);
     mailserver.loadMailsFromFolder();
   }
