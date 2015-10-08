@@ -66,6 +66,7 @@ module.exports = function(config) {
 
   if(config.persistMails){
     mailserver.setPersistentMailFolder(config.persistMails);
+    mailserver.loadMailsFromFolder();
   }
 
   if (config.autoRelay){
