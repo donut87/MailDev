@@ -37,6 +37,7 @@ module.exports = function(config) {
       .option('--web-user <user>', 'HTTP user for GUI')
       .option('--web-pass <password>', 'HTTP password for GUI')
       .option('-o, --open', 'Open the Web GUI after startup')
+      .option('-p, --persist-mails <path>', 'File to persist mails to and load from')
       .option('-v, --verbose')
       .parse(process.argv);
   }
@@ -61,6 +62,10 @@ module.exports = function(config) {
       config.outgoingPass,
       config.outgoingSecure
     );
+  }
+
+  if(config.persistMails){
+    mailserver.setPersistentMailFolder(config.persistMails);
   }
 
   if (config.autoRelay){
